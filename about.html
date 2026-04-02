@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About PrecisionTracker | Private Local-First Fitness Mapping</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                pmt: {
+                  '50': '#f0f9fa',
+                  '100': '#d9f0f2',
+                  '500': '#1fb1c3',
+                  '600': '#1991a0',
+                  '700': '#157582',
+                  '900': '#154e58',
+                },
+              }
+            }
+          }
+        }
+    </script>
+    <style>
+        .banner-bg {
+            background-image: linear-gradient(135deg, rgba(31, 177, 195, 0.92) 0%, rgba(21, 78, 88, 0.95) 100%);
+        }
+        .nav-link {
+            position: relative;
+            color: #475569;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1fb1c3;
+            transition: width 0.25s ease;
+        }
+        .nav-link:hover { color: #1fb1c3; }
+        .nav-link:hover::after { width: 100%; }
+
+        /* Fade-in on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Section accent bar */
+        .section-card {
+            border-left: 4px solid #1fb1c3;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <!-- ── NAV ── -->
+    <nav class="bg-white border-b border-slate-100 py-3 px-6 shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto flex items-center gap-6">
+            <img src="images/datavenlogo.png" alt="Dataven Logo" style="height:44px;width:44px;object-fit:cover;border-radius:50%;" class="flex-shrink-0">
+            <span class="text-xl font-bold text-slate-900 flex-shrink-0">Precision Movement Tracker</span>
+            <div class="hidden md:flex items-center gap-7 ml-6">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#data" class="nav-link">Data &amp; Export</a>
+                <a href="index.html#support" class="nav-link">Support</a>
+                <a href="index.html#policy" class="nav-link">Policy</a>
+            </div>
+            <div class="flex-1"></div>
+            <a href="https://play.google.com/store/apps/details?id=com.movementtracker.app"
+               class="hidden sm:block bg-pmt-500 hover:bg-pmt-600 text-white px-5 py-2 rounded-full font-semibold transition text-sm flex-shrink-0">
+                Join the Alpha Test
+            </a>
+        </div>
+    </nav>
+
+    <!-- ── HERO BANNER ── -->
+    <header class="banner-bg text-white py-20 px-6 shadow-inner">
+        <div class="max-w-5xl mx-auto flex items-center gap-12">
+            <div class="hidden lg:block flex-shrink-0">
+                <img src="images/app-logo.png" alt="PrecisionTracker Logo"
+                     style="width:180px;height:180px;object-fit:contain;filter:drop-shadow(0 8px 32px rgba(0,0,0,0.35));">
+            </div>
+            <div>
+                <p class="text-pmt-100 text-sm font-semibold uppercase tracking-widest mb-2">Mobile GPS Tracking App</p>
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-md leading-tight">
+                    PrecisionTracker<br>
+                    <span class="text-pmt-100 text-3xl md:text-4xl font-bold">Private, Local-First Fitness Mapping</span>
+                </h1>
+                <p class="text-pmt-50 text-lg leading-relaxed max-w-2xl">
+                    Map display, route, steps, and distance recording — with zero cloud, zero accounts, and zero compromise on your privacy.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <a href="https://play.google.com/store/apps/details?id=com.movementtracker.app"
+                       class="bg-white text-pmt-900 px-7 py-3 rounded-full font-bold hover:bg-slate-100 transition shadow-md">
+                        <i class="fa-brands fa-google-play mr-2"></i>Get on Android
+                    </a>
+                    <a href="index.html#features"
+                       class="bg-pmt-700 hover:bg-pmt-900 text-white px-7 py-3 rounded-full font-bold transition shadow-md">
+                        Explore Features
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── INTRO ── -->
+    <section class="py-16 px-6 max-w-4xl mx-auto reveal">
+        <p class="text-lg text-slate-600 leading-relaxed text-center max-w-3xl mx-auto">
+            PrecisionTracker is a <strong class="text-slate-800">high-performance GPS and fitness tracking tool</strong> built for users who demand professional-grade data without sacrificing personal privacy. Designed for hikers, runners, and outdoor enthusiasts, our app provides a comprehensive suite of mapping and session-analysis tools — all while keeping your data exactly where it belongs: <span class="text-pmt-600 font-semibold">on your device.</span>
+        </p>
+    </section>
+
+    <!-- ── FEATURE SECTIONS ── -->
+    <div class="max-w-5xl mx-auto px-6 pb-20 space-y-10">
+
+        <!-- GPS & Mapping -->
+        <div class="reveal bg-white rounded-2xl shadow-sm border border-slate-100 section-card overflow-hidden">
+            <div class="bg-gradient-to-r from-pmt-50 to-white px-8 py-6 flex items-center gap-4 border-b border-slate-100">
+                <div class="w-12 h-12 rounded-xl bg-pmt-500 flex items-center justify-center flex-shrink-0 shadow">
+                    <i class="fa-solid fa-map-location-dot text-white text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-extrabold text-slate-900">Precise GPS Tracking &amp; Advanced Mapping</h2>
+                    <p class="text-pmt-600 text-sm font-medium">Real-time route visualization with high-accuracy GPS</p>
+                </div>
+            </div>
+            <div class="px-8 py-6">
+                <p class="text-slate-600 mb-5 leading-relaxed">Whether you are navigating urban streets or remote trails, PrecisionTracker provides the spatial data you need:</p>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="flex gap-3">
+                        <i class="fa-solid fa-route text-pmt-500 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-sm">Real-Time Path Tracing</p>
+                            <p class="text-slate-500 text-sm">Watch your exact route form on an interactive map as you move.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <i class="fa-solid fa-gauge-high text-pmt-500 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-sm">Advanced Live Metrics</p>
+                            <p class="text-slate-500 text-sm">Monitor Latitude, Longitude, Altitude, and Speed in real-time.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <i class="fa-solid fa-layer-group text-pmt-500 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-sm">Dynamic Map Layers</p>
+                            <p class="text-slate-500 text-sm">Switch between Street, Satellite, and Dark modes to match your terrain.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <i class="fa-solid fa-location-pin text-pmt-500 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-sm">Navigation Markers</p>
+                            <p class="text-slate-500 text-sm">Dedicated Start and End markers for instant journey review.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fitness Analysis -->
+        <div class="reveal bg-white rounded-2xl shadow-sm border border-slate-100 section-card overflow-hidden">
+            <div class="bg-gradient-to-r from-green-50 to-white px-8 py-6 flex items-center gap-4 border-b border-slate-100">
+                <div class="w-12 h-12 rounded-xl bg-green-600 flex items-center justify-center flex-shrink-0 shadow">
+                    <i class="fa-solid fa-shoe-prints text-white text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-extrabold text-slate-900">Integrated Fitness &amp; Activity Analysis</h2>
+                    <p class="text-green-600 text-sm font-medium">Motion-sensing technology to track physical performance</p>
+                </div>
+            </div>
+            <div class="px-8 py-6">
+                <p class="text-slate-600 mb-5 leading-relaxed">PrecisionTracker goes beyond simple mapping by integrating motion-sensing technology to track your physical performance:</p>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="flex gap-3">
+                        <i class="fa-solid fa-person-walking text-green-600 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-sm">Pedometer</p>
+                            <p class="text-slate-500 text-sm">Integrated step counter uses your device's internal motion sensors to record every stride.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <i class="fa-solid fa-chart-bar text-green-600 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-sm">Comprehensive Statistics</p>
+                            <p class="text-slate-500 text-sm">Total distance, duration, average speed, and peak altitude upon session end.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <i class="fa-solid fa-stopwatch text-green-600 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-sm">Pace Tracking</p>
+                            <p class="text-slate-500 text-sm">Monitor your steps-per-minute to maintain your ideal training rhythm.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Multimedia & Data -->
+        <div class="reveal bg-white rounded-2xl shadow-sm border border-slate-100 section-card overflow-hidden">
+            <div class="bg-gradient-to-r from-violet-50 to-white px-8 py-6 flex items-center gap-4 border-b border-slate-100">
+                <div class="w-12 h-12 rounded-xl bg-violet-500 flex items-center justify-center flex-shrink-0 shadow">
+                    <i class="fa-solid fa-camera text-white text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-extrabold text-slate-900">Multimedia &amp; Data Management</h2>
+                    <p class="text-violet-600 text-sm font-medium">Document your journey and manage your records with ease</p>
+                </div>
+            </div>
+            <div class="px-8 py-6">
+                <p class="text-slate-600 mb-5 leading-relaxed">Document your journey and manage your records with ease through our built-in utility suite:</p>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="flex gap-3">
+                        <i class="fa-solid fa-camera-retro text-violet-500 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-sm">In-App Route Camera</p>
+                            <p class="text-slate-500 text-sm">Capture timestamped photos of landmarks directly within the tracking interface.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <i class="fa-solid fa-file-export text-violet-500 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-sm">High-Fidelity Exports</p>
+                            <p class="text-slate-500 text-sm">Export session data as professionally formatted CSV or JSON files.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <i class="fa-solid fa-envelope text-violet-500 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-sm">One-Tap Emailing</p>
+                            <p class="text-slate-500 text-sm">Send your fitness stats and route data to your own email for long-term archiving.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Privacy -->
+        <div class="reveal bg-pmt-900 text-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="px-8 py-6 flex items-center gap-4 border-b border-pmt-700">
+                <div class="w-12 h-12 rounded-xl bg-red-600 flex items-center justify-center flex-shrink-0 shadow">
+                    <i class="fa-solid fa-shield-halved text-white text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-extrabold">Your Privacy, Guaranteed</h2>
+                    <p class="text-pmt-300 text-sm font-medium">A completely local experience — no exceptions</p>
+                </div>
+            </div>
+            <div class="px-8 py-6">
+                <p class="text-pmt-100 mb-5 leading-relaxed">In an era of constant cloud synchronization, PrecisionTracker stands apart by offering a completely local experience:</p>
+                <div class="grid sm:grid-cols-3 gap-5">
+                    <div class="bg-pmt-700/50 rounded-xl p-4">
+                        <i class="fa-solid fa-cloud-slash text-red-400 text-2xl mb-3"></i>
+                        <p class="font-bold text-sm mb-1">No Cloud Storage</p>
+                        <p class="text-pmt-200 text-sm">We do not use external servers. Your GPS coordinates, photos, and fitness stats reside strictly on your phone.</p>
+                    </div>
+                    <div class="bg-pmt-700/50 rounded-xl p-4">
+                        <i class="fa-solid fa-user-shield text-red-400 text-2xl mb-3"></i>
+                        <p class="font-bold text-sm mb-1">Zero Data Sharing</p>
+                        <p class="text-pmt-200 text-sm">Your data is never shared with third parties. You have total control over when and where you export your information.</p>
+                    </div>
+                    <div class="bg-pmt-700/50 rounded-xl p-4">
+                        <i class="fa-solid fa-user-slash text-red-400 text-2xl mb-3"></i>
+                        <p class="font-bold text-sm mb-1">No Accounts, No Tracking</p>
+                        <p class="text-pmt-200 text-sm">Start recording immediately. No account creation, email sign-ups, or personal identifying information required.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Requirements -->
+        <div class="reveal bg-white rounded-2xl shadow-sm border border-slate-100 section-card overflow-hidden">
+            <div class="bg-gradient-to-r from-slate-50 to-white px-8 py-6 flex items-center gap-4 border-b border-slate-100">
+                <div class="w-12 h-12 rounded-xl bg-slate-700 flex items-center justify-center flex-shrink-0 shadow">
+                    <i class="fa-solid fa-microchip text-white text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-extrabold text-slate-900">Technical Requirements &amp; Performance</h2>
+                    <p class="text-slate-500 text-sm font-medium">What your device needs for best results</p>
+                </div>
+            </div>
+            <div class="px-8 py-6">
+                <p class="text-slate-600 mb-5 leading-relaxed">To ensure the highest level of accuracy and functionality, PrecisionTracker requires the following:</p>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                        <i class="fa-solid fa-satellite-dish text-pmt-500 mt-0.5 flex-shrink-0"></i>
+                        <div>
+                            <span class="font-semibold text-slate-800 text-sm">GPS / Location Services</span>
+                            <span class="text-slate-500 text-sm"> — Must be enabled and set to "High Accuracy" for precise route tracing.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                        <i class="fa-solid fa-lock-open text-pmt-500 mt-0.5 flex-shrink-0"></i>
+                        <div>
+                            <span class="font-semibold text-slate-800 text-sm">Permissions</span>
+                            <span class="text-slate-500 text-sm"> — Location (tracking), Camera (route photos), and Storage (exporting data files).</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                        <i class="fa-solid fa-mobile-screen-button text-pmt-500 mt-0.5 flex-shrink-0"></i>
+                        <div>
+                            <span class="font-semibold text-slate-800 text-sm">Motion Sensors</span>
+                            <span class="text-slate-500 text-sm"> — Accelerometer access required for integrated step-counter functionality.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                        <i class="fa-brands fa-android text-green-600 mt-0.5 flex-shrink-0"></i>
+                        <div>
+                            <span class="font-semibold text-slate-800 text-sm">Android 8.0 (Oreo) or higher</span>
+                            <span class="text-slate-500 text-sm"> — Required for full feature compatibility.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ── CTA BANNER ── -->
+    <section class="banner-bg text-white py-16 px-6 text-center">
+        <div class="max-w-2xl mx-auto">
+            <i class="fa-solid fa-flag-checkered text-5xl text-pmt-100 mb-5 drop-shadow"></i>
+            <h2 class="text-3xl font-extrabold mb-3">Take control of your fitness data today.</h2>
+            <p class="text-pmt-100 text-lg mb-8">Tap "Start Recording" and hit the trail with PrecisionTracker.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.movementtracker.app"
+               class="inline-block bg-white text-pmt-900 px-9 py-4 rounded-full font-extrabold text-lg hover:bg-slate-100 transition shadow-lg">
+                <i class="fa-brands fa-google-play mr-2"></i>Join the Alpha Test
+            </a>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer class="py-12 text-center text-slate-500 text-sm">
+        <div class="flex items-center justify-center gap-2 mb-3">
+            <img src="images/datavenlogo.png" alt="Dataven Logo" style="height:24px;width:24px;object-fit:cover;border-radius:50%;opacity:0.7;">
+            <span>&copy; 2026 Precision Movement Tracker</span>
+        </div>
+        <p>Built for privacy, driven by data.</p>
+    </footer>
+
+    <script>
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+        }, { threshold: 0.1 });
+        reveals.forEach(r => observer.observe(r));
+    </script>
+
+</body>
+</html>
