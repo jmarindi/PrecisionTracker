@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
-        // Custom Tailwind config to match the logo colors
         tailwind.config = {
           theme: {
             extend: {
@@ -15,83 +14,265 @@
                 pmt: {
                   '50': '#f0f9fa',
                   '100': '#d9f0f2',
-                  '500': '#1fb1c3', // Teal from logo
+                  '500': '#1fb1c3',
                   '600': '#1991a0',
                   '700': '#157582',
-                  '900': '#154e58', // Deep teal for dark sections
+                  '900': '#154e58',
                 },
-                'sky': '#17b0cb' // Light blue from logo
+                'sky': '#17b0cb'
               }
             }
           }
         }
     </script>
     <style>
-        /* Define a CSS class to handle the World Map Banner background */
         .banner-bg { 
             background-image: linear-gradient(135deg, rgba(31, 177, 195, 0.92) 0%, rgba(21, 78, 88, 0.95) 100%), 
                               url('images/world-banner.png');
             background-size: cover;
             background-position: center;
         }
+
+        /* Nav link hover underline effect */
+        .nav-link {
+            position: relative;
+            color: #475569;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1fb1c3;
+            transition: width 0.25s ease;
+        }
+        .nav-link:hover {
+            color: #1fb1c3;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
 
     <nav class="bg-white border-b border-slate-100 py-3 px-6 shadow-sm">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <img src="images/app-logo.png" alt="Precision Movement Tracker Logo" class="h-10 w-10">
-                <span class="text-xl font-bold text-slate-900">Precision Movement Tracker</span>
+        <div class="max-w-7xl mx-auto flex items-center gap-6">
+
+            <!-- Nav logo (X) — datavenlogo -->
+            <img src="images/datavenlogo.png" alt="Dataven Logo" class="flex-shrink-0" style="height:44px;width:44px;object-fit:cover;border-radius:50%;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;">
+
+            <!-- Brand name -->
+            <span class="text-xl font-bold text-slate-900 flex-shrink-0">Precision Movement Tracker</span>
+
+            <!-- Nav tabs — centred in remaining space -->
+            <div class="hidden md:flex items-center gap-7 ml-6">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#data" class="nav-link">Data &amp; Export</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#support" class="nav-link">Support</a>
+                <a href="#policy" class="nav-link">Policy</a>
+                <button onclick="openGallery()" class="nav-link bg-transparent border-0 p-0 cursor-pointer">Gallery</button>
             </div>
-            <a href="#" class="hidden sm:block bg-pmt-500 hover:bg-pmt-600 text-white px-5 py-2 rounded-full font-semibold transition text-sm">Join the Alpha Test</a>
+
+            <!-- Spacer pushes button to far right -->
+            <div class="flex-1"></div>
+
+            <!-- Join button — far right -->
+            <a href="https://play.google.com/store/apps/details?id=com.movementtracker.app"
+               class="hidden sm:block bg-pmt-500 hover:bg-pmt-600 text-white px-5 py-2 rounded-full font-semibold transition text-sm flex-shrink-0">
+                Join the Alpha Test
+            </a>
         </div>
     </nav>
 
-    <header class="banner-bg text-white py-24 px-6 text-center shadow-inner">
-        <div class="max-w-4xl mx-auto">
-            <i class="fa-solid fa-location-crosshairs text-7xl text-pmt-100 mb-6 drop-shadow-lg"></i>
-            <h1 class="text-5xl font-extrabold mb-4 drop-shadow-md">PrecisionTracker</h1>
-            <p class="text-xl text-pmt-50 mb-8 leading-relaxed max-w-2xl mx-auto">
-                A mobile GPS tracking app with map display, route, steps, and distance recording. 
-                <span class="block mt-2 font-semibold text-pmt-100">Private, Local-First Fitness Mapping.</span>
-            </p>
-            <div class="flex justify-center gap-4">
-                <a href="#features" class="bg-pmt-600 hover:bg-pmt-700 text-white px-8 py-3 rounded-full font-bold transition shadow-md">Explore Features</a>
-                <a href="https://play.google.com/store/apps/details?id=com.movementtracker.app"class="bg-white text-pmt-900 px-8 py-3 rounded-full font-bold hover:bg-slate-200 transition shadow-md">Join the Alpha Test</a>
+    <header class="banner-bg text-white py-24 px-6 shadow-inner">
+        <div class="max-w-6xl mx-auto flex items-center gap-12">
+
+            <!-- Y — app-logo, large on left of hero -->
+            <div class="hidden lg:flex flex-shrink-0 items-center justify-center">
+                <img src="images/app-logo.png" alt="PrecisionTracker App Logo"
+                     style="width:220px;height:220px;object-fit:contain;filter:drop-shadow(0 8px 32px rgba(0,0,0,0.35));image-rendering:-webkit-optimize-contrast;">
             </div>
+
+            <!-- Hero text -->
+            <div class="flex-1 text-center lg:text-left">
+                <i class="fa-solid fa-location-crosshairs text-6xl text-pmt-100 mb-5 drop-shadow-lg lg:hidden"></i>
+                <h1 class="text-5xl font-extrabold mb-4 drop-shadow-md">PrecisionTracker</h1>
+                <p class="text-xl text-pmt-50 mb-8 leading-relaxed max-w-2xl lg:mx-0 mx-auto">
+                    A mobile GPS tracking app with map display, route, steps, and distance recording.
+                    <span class="block mt-2 font-semibold text-pmt-100">Private, Local-First Fitness Mapping.</span>
+                </p>
+                <div class="flex justify-center lg:justify-start gap-4">
+                    <a href="#features" class="bg-pmt-600 hover:bg-pmt-700 text-white px-8 py-3 rounded-full font-bold transition shadow-md">Explore Features</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.movementtracker.app" class="bg-white text-pmt-900 px-8 py-3 rounded-full font-bold hover:bg-slate-200 transition shadow-md">Join the Alpha Test</a>
+                </div>
+            </div>
+
         </div>
     </header>
 
     <section id="features" class="py-20 px-6 max-w-6xl mx-auto">
         <h2 class="text-3xl font-bold text-center mb-16">High-Performance Tracking</h2>
         
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="feature-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition">
-                <i class="fa-solid fa-map-location-dot text-4xl text-sky mb-6"></i>
+        <div class="grid md:grid-cols-5 gap-6">
+            <!-- Card A -->
+            <div onclick="openModal('gps')" class="cursor-pointer bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-pmt-500 hover:-translate-y-1 transition-all duration-200 group">
+                <i class="fa-solid fa-map-location-dot text-4xl text-sky mb-6 group-hover:scale-110 transition-transform duration-200 inline-block"></i>
                 <h3 class="text-xl font-bold mb-3">Precise GPS Tracing</h3>
-                <p class="text-slate-600">Real-time route visualization with high-accuracy metrics including Altitude, Speed, and Pace.</p>
+                <p class="text-slate-600 text-sm">Real-time route visualization with high-accuracy metrics including Altitude, Speed, and Pace.</p>
+                <span class="mt-4 inline-flex items-center gap-1 text-pmt-500 text-sm font-semibold">Learn more <i class="fa-solid fa-arrow-right text-xs"></i></span>
             </div>
 
-            <div class="feature-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition">
-                <i class="fa-solid fa-shoe-prints text-4xl text-green-600 mb-6"></i>
+            <!-- Card B -->
+            <div onclick="openModal('pedometer')" class="cursor-pointer bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-pmt-500 hover:-translate-y-1 transition-all duration-200 group">
+                <i class="fa-solid fa-shoe-prints text-4xl text-green-600 mb-6 group-hover:scale-110 transition-transform duration-200 inline-block"></i>
                 <h3 class="text-xl font-bold mb-3">Integrated Pedometer</h3>
-                <p class="text-slate-600">Utilizes internal motion sensors to record every stride and calculate precise fitness statistics.</p>
+                <p class="text-slate-600 text-sm">Utilizes internal motion sensors to record every stride and calculate precise fitness statistics.</p>
+                <span class="mt-4 inline-flex items-center gap-1 text-pmt-500 text-sm font-semibold">Learn more <i class="fa-solid fa-arrow-right text-xs"></i></span>
             </div>
 
-            <div class="feature-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition">
-                <i class="fa-solid fa-shield-halved text-4xl text-red-600 mb-6"></i>
-                <h3 class="text-xl font-bold mb-3">100% Private & Local</h3>
-                <p class="text-slate-600">No cloud, no accounts, no tracking. Your data stays on your device—exactly where it belongs.</p>
+            <!-- Card C -->
+            <div onclick="openModal('privacy')" class="cursor-pointer bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-pmt-500 hover:-translate-y-1 transition-all duration-200 group">
+                <i class="fa-solid fa-shield-halved text-4xl text-red-600 mb-6 group-hover:scale-110 transition-transform duration-200 inline-block"></i>
+                <h3 class="text-xl font-bold mb-3">100% Private &amp; Local</h3>
+                <p class="text-slate-600 text-sm">No cloud, no accounts, no tracking. Your data stays on your device—exactly where it belongs.</p>
+                <span class="mt-4 inline-flex items-center gap-1 text-pmt-500 text-sm font-semibold">Learn more <i class="fa-solid fa-arrow-right text-xs"></i></span>
+            </div>
+
+            <!-- Card D — Export Data -->
+            <div onclick="openModal('export')" class="cursor-pointer bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-pmt-500 hover:-translate-y-1 transition-all duration-200 group">
+                <i class="fa-solid fa-file-export text-4xl text-pmt-500 mb-6 group-hover:scale-110 transition-transform duration-200 inline-block"></i>
+                <h3 class="text-xl font-bold mb-3">Export Data</h3>
+                <p class="text-slate-600 text-sm">Download your sessions as CSV or JSON for personal archiving, analysis, or integration.</p>
+                <span class="mt-4 inline-flex items-center gap-1 text-pmt-500 text-sm font-semibold">Learn more <i class="fa-solid fa-arrow-right text-xs"></i></span>
+            </div>
+
+            <!-- Card E — Gallery -->
+            <div onclick="openGallery()" class="cursor-pointer bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-pmt-500 hover:-translate-y-1 transition-all duration-200 group">
+                <i class="fa-solid fa-images text-4xl text-violet-500 mb-6 group-hover:scale-110 transition-transform duration-200 inline-block"></i>
+                <h3 class="text-xl font-bold mb-3">Gallery</h3>
+                <p class="text-slate-600 text-sm">Browse app screenshots and watch demo videos to see PrecisionTracker in action.</p>
+                <span class="mt-4 inline-flex items-center gap-1 text-pmt-500 text-sm font-semibold">View Gallery <i class="fa-solid fa-arrow-right text-xs"></i></span>
             </div>
         </div>
     </section>
 
-    <section class="bg-pmt-900 text-pmt-50 py-20 px-6">
+    <!-- ── MODALS ── -->
+    <div id="modal-overlay" onclick="closeModal()" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div id="modal-box" onclick="event.stopPropagation()" class="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-8 relative animate-fade-in">
+            <!-- Close button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <!-- Icon -->
+            <div id="modal-icon" class="text-5xl mb-5"></div>
+            <!-- Title -->
+            <h3 id="modal-title" class="text-2xl font-extrabold text-slate-900 mb-3"></h3>
+            <!-- Body -->
+            <div id="modal-body" class="text-slate-600 leading-relaxed space-y-3 text-sm"></div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeInUp 0.22s ease both; }
+    </style>
+
+    <script>
+        const modals = {
+            gps: {
+                icon: '<i class="fa-solid fa-map-location-dot" style="color:#17b0cb"></i>',
+                title: 'Precise GPS Tracing',
+                body: `
+                    <p>PrecisionTracker uses your device's built-in GPS chip to plot your exact route on an interactive map in real time. Every point is recorded at high frequency so your path is smooth and accurate — even on winding trails or city streets.</p>
+                    <ul class="space-y-2 mt-3">
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>Altitude tracking</strong> — see elevation gain and loss throughout your session.</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>Live speed &amp; pace</strong> — monitor your performance as it happens.</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>Route history</strong> — revisit any saved session on the map at any time.</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>Works offline</strong> — no internet required; all processing happens on-device.</li>
+                    </ul>
+                `
+            },
+            pedometer: {
+                icon: '<i class="fa-solid fa-shoe-prints" style="color:#16a34a"></i>',
+                title: 'Integrated Pedometer',
+                body: `
+                    <p>The built-in pedometer taps into your phone's accelerometer and gyroscope to count steps with hardware-level precision — no GPS battery drain required for step counting alone.</p>
+                    <ul class="space-y-2 mt-3">
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>Stride detection</strong> — advanced motion filtering removes false positives from bumps or vibrations.</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>Calorie estimate</strong> — calculated from your step count, pace, and session duration.</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>Daily step goal</strong> — set a target and track your progress throughout the day.</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>Background counting</strong> — keeps counting even when your screen is off.</li>
+                    </ul>
+                `
+            },
+            privacy: {
+                icon: '<i class="fa-solid fa-shield-halved" style="color:#dc2626"></i>',
+                title: '100% Private &amp; Local',
+                body: `
+                    <p>Your fitness data is deeply personal. PrecisionTracker is built on a strict local-first principle: nothing ever leaves your device unless <em>you</em> choose to export it.</p>
+                    <ul class="space-y-2 mt-3">
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>No account required</strong> — open the app and go. No email, no sign-up.</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>No cloud sync</strong> — your routes, steps, and stats never touch a remote server.</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>No ads or tracking SDKs</strong> — zero third-party analytics embedded in the app.</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>Full data ownership</strong> — delete everything instantly from within the app.</li>
+                    </ul>
+                `
+            },
+            export: {
+                icon: '<i class="fa-solid fa-file-export" style="color:#1fb1c3"></i>',
+                title: 'Export Data',
+                body: `
+                    <p>Take your data wherever you need it. After any session, export a complete record in the format that suits your workflow — no proprietary lock-in.</p>
+                    <ul class="space-y-2 mt-3">
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>CSV export</strong> — open in Excel, Google Sheets, or any spreadsheet tool for custom analysis.</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>JSON export</strong> — structured data ready for developers or third-party integrations.</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>Route photos</strong> — in-app camera snapshots are bundled with your session export.</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i><strong>Bulk export</strong> — export all historical sessions at once from the History screen.</li>
+                    </ul>
+                `
+            }
+        };
+
+        function openModal(key) {
+            const m = modals[key];
+            document.getElementById('modal-icon').innerHTML  = m.icon;
+            document.getElementById('modal-title').innerHTML = m.title;
+            document.getElementById('modal-body').innerHTML  = m.body;
+            const overlay = document.getElementById('modal-overlay');
+            overlay.classList.remove('hidden');
+            overlay.classList.add('flex');
+            // re-trigger animation
+            const box = document.getElementById('modal-box');
+            box.classList.remove('animate-fade-in');
+            void box.offsetWidth;
+            box.classList.add('animate-fade-in');
+        }
+
+        function closeModal() {
+            const overlay = document.getElementById('modal-overlay');
+            overlay.classList.add('hidden');
+            overlay.classList.remove('flex');
+        }
+
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    </script>
+
+    <!-- Data & Export section (new tab target) -->
+    <section id="data" class="bg-pmt-900 text-pmt-50 py-20 px-6">
         <div class="max-w-4xl mx-auto space-y-16">
             <div class="flex flex-col md:flex-row items-center gap-10">
                 <div class="flex-1">
-                    <h3 class="text-2xl font-bold mb-4">Multimedia & Data Management</h3>
+                    <h3 class="text-2xl font-bold mb-4">Multimedia &amp; Data Management</h3>
                     <p class="text-pmt-100 leading-relaxed">
                         Document your journey with the in-app route camera. Export your sessions as professionally formatted 
                         <strong>CSV or JSON</strong> files for personal archiving or analysis.
@@ -118,9 +299,292 @@
         </div>
     </section>
 
+    <!-- About section (new tab) -->
+    <section id="about" class="py-20 px-6 max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-10">About PrecisionTracker</h2>
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-10 flex flex-col md:flex-row items-center gap-10">
+            <div class="flex-shrink-0 text-center">
+                <i class="fa-solid fa-location-crosshairs text-7xl text-pmt-500"></i>
+            </div>
+            <div>
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    PrecisionTracker was built by fitness enthusiasts who believe your movement data belongs to <em>you</em>—not to a corporation. 
+                    We set out to create a GPS fitness app that is powerful, beautiful, and completely offline.
+                </p>
+                <p class="text-slate-600 leading-relaxed">
+                    No subscriptions. No sign-ups. No telemetry. Just you, your device, and the open road. 
+                    Currently in alpha testing on Android — join us and help shape the future of private fitness tracking.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support section (new tab) -->
+    <section id="support" class="bg-slate-100 py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Support</h2>
+            <p class="text-slate-500 mb-10">Having trouble or have a question? We're here to help.</p>
+            <div class="grid md:grid-cols-3 gap-6 text-left">
+                <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <i class="fa-solid fa-book text-2xl text-pmt-500 mb-4"></i>
+                    <h4 class="font-bold text-lg mb-2">Documentation</h4>
+                    <p class="text-slate-500 text-sm">Read the full user guide to get the most out of every feature.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <i class="fa-brands fa-google-play text-2xl text-pmt-500 mb-4"></i>
+                    <h4 class="font-bold text-lg mb-2">Alpha Feedback</h4>
+                    <p class="text-slate-500 text-sm">Report bugs or suggest improvements directly through the Play Store listing.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <i class="fa-solid fa-envelope text-2xl text-pmt-500 mb-4"></i>
+                    <h4 class="font-bold text-lg mb-2">Contact Us</h4>
+                    <p class="text-slate-500 text-sm">Reach out to the team directly at <a href="/cdn-cgi/l/email-protection#ee9d9b9e9e819c9aae9e9c8b8d879d8781809a9c8f8d858b9cc08f9e9e" class="text-pmt-600 hover:underline"><span class="__cf_email__" data-cfemail="d8abada8a8b7aaac98a8aabdbbb1abb1b7b6acaab9bbb3bdaaf6b9a8a8">[email&#160;protected]</span></a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── GALLERY MODAL ── -->
+    <div id="gallery-overlay" onclick="closeGallery()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div id="gallery-box" onclick="event.stopPropagation()" class="bg-white rounded-3xl shadow-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto relative animate-fade-in">
+
+            <!-- Header -->
+            <div class="sticky top-0 bg-white border-b border-slate-100 px-8 py-5 flex items-center justify-between z-10 rounded-t-3xl">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-images text-2xl text-violet-500"></i>
+                    <h2 class="text-2xl font-extrabold text-slate-900">App Gallery</h2>
+                </div>
+                <button onclick="closeGallery()" class="w-9 h-9 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="px-8 py-8 space-y-10">
+
+                <!-- Screenshots grid -->
+                <div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-mobile-screen text-pmt-500"></i> Screenshots
+                    </h3>
+                    <p class="text-slate-400 text-sm mb-5">A look at PrecisionTracker's interface across key screens.</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                        <!-- Real uploaded screenshot -->
+                        <div class="group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[9/16] shadow-sm hover:shadow-lg transition cursor-zoom-in" onclick="lightbox(this)">
+                            <img src="images/1.png" alt="App Screenshot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition flex items-center justify-center">
+                                <i class="fa-solid fa-magnifying-glass-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+                            </div>
+                        </div>
+						<div class="group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[9/16] shadow-sm hover:shadow-lg transition cursor-zoom-in" onclick="lightbox(this)">
+                            <img src="images/2.png" alt="App Screenshot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition flex items-center justify-center">
+                                <i class="fa-solid fa-magnifying-glass-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+                            </div>
+                        </div>
+						<div class="group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[9/16] shadow-sm hover:shadow-lg transition cursor-zoom-in" onclick="lightbox(this)">
+                            <img src="images/3.png" alt="App Screenshot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition flex items-center justify-center">
+                                <i class="fa-solid fa-magnifying-glass-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+                            </div>
+                        </div>
+						<div class="group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[9/16] shadow-sm hover:shadow-lg transition cursor-zoom-in" onclick="lightbox(this)">
+                            <img src="images/4.png" alt="App Screenshot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition flex items-center justify-center">
+                                <i class="fa-solid fa-magnifying-glass-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+                            </div>
+                        </div>
+						<div class="group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[9/16] shadow-sm hover:shadow-lg transition cursor-zoom-in" onclick="lightbox(this)">
+                            <img src="images/5.png" alt="App Screenshot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition flex items-center justify-center">
+                                <i class="fa-solid fa-magnifying-glass-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+                            </div>
+                        </div>
+						<div class="group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[9/16] shadow-sm hover:shadow-lg transition cursor-zoom-in" onclick="lightbox(this)">
+                            <img src="images/6.png" alt="App Screenshot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition flex items-center justify-center">
+                                <i class="fa-solid fa-magnifying-glass-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+                            </div>
+                        </div>
+						<div class="group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[9/16] shadow-sm hover:shadow-lg transition cursor-zoom-in" onclick="lightbox(this)">
+                            <img src="images/7.png" alt="App Screenshot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition flex items-center justify-center">
+                                <i class="fa-solid fa-magnifying-glass-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+                            </div>
+                        </div>
+						<div class="group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[9/16] shadow-sm hover:shadow-lg transition cursor-zoom-in" onclick="lightbox(this)">
+                            <img src="images/8.png" alt="App Screenshot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition flex items-center justify-center">
+                                <i class="fa-solid fa-magnifying-glass-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+                            </div>
+                        </div>
+                        <!-- Placeholder slots for future screenshots
+                        <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-pmt-50 to-pmt-100 aspect-[9/16] flex flex-col items-center justify-center gap-2 border-2 border-dashed border-pmt-300 cursor-default">
+                            <i class="fa-solid fa-plus text-pmt-400 text-2xl"></i>
+                            <span class="text-pmt-500 text-xs font-medium text-center px-2"> <img src="images/2.png" alt="App Screenshot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> alt="App Screenshot"></span>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-pmt-50 to-pmt-100 aspect-[9/16] flex flex-col items-center justify-center gap-2 border-2 border-dashed border-pmt-300 cursor-default">
+                            <i class="fa-solid fa-plus text-pmt-400 text-2xl"></i>
+                            <span class="text-pmt-500 text-xs font-medium text-center px-2">Add screenshot<br>src here</span>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-pmt-50 to-pmt-100 aspect-[9/16] flex flex-col items-center justify-center gap-2 border-2 border-dashed border-pmt-300 cursor-default">
+                            <i class="fa-solid fa-plus text-pmt-400 text-2xl"></i>
+                            <span class="text-pmt-500 text-xs font-medium text-center px-2">Add screenshot<br>src here</span>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-pmt-50 to-pmt-100 aspect-[9/16] flex flex-col items-center justify-center gap-2 border-2 border-dashed border-pmt-300 cursor-default">
+                            <i class="fa-solid fa-plus text-pmt-400 text-2xl"></i>
+                            <span class="text-pmt-500 text-xs font-medium text-center px-2">Add screenshot<br>src here</span>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-pmt-50 to-pmt-100 aspect-[9/16] flex flex-col items-center justify-center gap-2 border-2 border-dashed border-pmt-300 cursor-default">
+                            <i class="fa-solid fa-plus text-pmt-400 text-2xl"></i>
+                            <span class="text-pmt-500 text-xs font-medium text-center px-2">Add screenshot<br>src here</span>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-pmt-50 to-pmt-100 aspect-[9/16] flex flex-col items-center justify-center gap-2 border-2 border-dashed border-pmt-300 cursor-default">
+                            <i class="fa-solid fa-plus text-pmt-400 text-2xl"></i>
+                            <span class="text-pmt-500 text-xs font-medium text-center px-2">Add screenshot<br>src here</span>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-pmt-50 to-pmt-100 aspect-[9/16] flex flex-col items-center justify-center gap-2 border-2 border-dashed border-pmt-300 cursor-default">
+                            <i class="fa-solid fa-plus text-pmt-400 text-2xl"></i>
+                            <span class="text-pmt-500 text-xs font-medium text-center px-2">Add screenshot<br>src here</span>
+                        </div>  -->
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="border-t border-slate-100"></div>
+
+                <!-- YouTube Videos -->
+                <div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-1 flex items-center gap-2">
+                        <i class="fa-brands fa-youtube text-red-500"></i> Demo Videos
+                    </h3>
+                    <p class="text-slate-400 text-sm mb-5">Watch PrecisionTracker in action — click any video to open on YouTube.</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+
+                        <!-- Video 1 — 2frZWrU_8vo -->
+                        <a href="https://www.youtube.com/shorts/2frZWrU_8vo" target="_blank" rel="noopener"
+                           class="group block rounded-2xl overflow-hidden shadow-md bg-slate-900 hover:shadow-xl transition-shadow duration-200">
+                            <div class="relative w-full" style="padding-top:56.25%">
+                                <img src="https://img.youtube.com/vi/2frZWrU_8vo/hqdefault.jpg"
+                                     alt="App Walkthrough — GPS Tracking"
+                                     class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <!-- Play button overlay -->
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition">
+                                    <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-200">
+                                        <i class="fa-solid fa-play text-white text-xl ml-1"></i>
+                                    </div>
+                                </div>
+                                <!-- YouTube badge -->
+                                <div class="absolute top-3 right-3 bg-black/70 rounded-lg px-2 py-1 flex items-center gap-1">
+                                    <i class="fa-brands fa-youtube text-red-500 text-sm"></i>
+                                    <span class="text-white text-xs font-medium">YouTube</span>
+                                </div>
+                            </div>
+                            <p class="text-white text-sm font-medium px-4 py-3 flex items-center gap-2">
+                                <i class="fa-solid fa-map-location-dot text-pmt-500"></i> App Walkthrough — GPS Tracking
+                            </p>
+                        </a>
+						
+						<!-- Video 2 — 2frZWrU_8vo -->
+                        <a href="https://www.youtube.com/shorts/a9RTV07_tb0" target="_blank" rel="noopener"
+                           class="group block rounded-2xl overflow-hidden shadow-md bg-slate-900 hover:shadow-xl transition-shadow duration-200">
+                            <div class="relative w-full" style="padding-top:56.25%">
+                                <img src="https://img.youtube.com/vi/2frZWrU_8vo/hqdefault.jpg"
+                                     alt="App Walkthrough — GPS Tracking"
+                                     class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <!-- Play button overlay -->
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition">
+                                    <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-200">
+                                        <i class="fa-solid fa-play text-white text-xl ml-1"></i>
+                                    </div>
+                                </div>
+                                <!-- YouTube badge -->
+                                <div class="absolute top-3 right-3 bg-black/70 rounded-lg px-2 py-1 flex items-center gap-1">
+                                    <i class="fa-brands fa-youtube text-red-500 text-sm"></i>
+                                    <span class="text-white text-xs font-medium">YouTube</span>
+                                </div>
+                            </div>
+                            <p class="text-white text-sm font-medium px-4 py-3 flex items-center gap-2">
+                                <i class="fa-solid fa-map-location-dot text-pmt-500"></i> App Full features
+                            </p>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox for full-screen screenshot -->
+    <div id="lightbox" onclick="closeLightbox()" class="fixed inset-0 bg-black/90 z-[60] hidden items-center justify-center p-6 cursor-zoom-out">
+        <img id="lightbox-img" src="" class="max-h-full max-w-full rounded-2xl shadow-2xl object-contain">
+        <button onclick="closeLightbox()" class="absolute top-5 right-5 w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 text-white transition">
+            <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Policy section -->
+    <section id="policy" class="py-20 px-6 max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-10">Privacy Policy</h2>
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-10 space-y-6 text-slate-600 leading-relaxed text-sm">
+            <div>
+                <h4 class="font-bold text-slate-900 text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-database text-pmt-500"></i> Data Collection</h4>
+                <p>PrecisionTracker collects <strong>zero personal data</strong>. The app does not transmit any information to external servers. All GPS coordinates, step counts, session records, and route photos are stored exclusively in your device's local storage.</p>
+            </div>
+            <div class="border-t border-slate-100 pt-6">
+                <h4 class="font-bold text-slate-900 text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-location-dot text-pmt-500"></i> Location Permissions</h4>
+                <p>The app requests access to your device's precise location solely to record your movement route during active sessions. Location data is never shared, uploaded, or used for any purpose other than generating your local fitness record.</p>
+            </div>
+            <div class="border-t border-slate-100 pt-6">
+                <h4 class="font-bold text-slate-900 text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-camera text-pmt-500"></i> Camera &amp; Storage</h4>
+                <p>Camera access is only requested when you choose to take a route photo within an active session. Photos are saved directly to your device and are never uploaded. Storage access is used solely to write and read your session files.</p>
+            </div>
+            <div class="border-t border-slate-100 pt-6">
+                <h4 class="font-bold text-slate-900 text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-trash text-pmt-500"></i> Data Deletion</h4>
+                <p>You can permanently delete all your stored sessions and data at any time from within the app's settings screen. Uninstalling the app also removes all locally stored data.</p>
+            </div>
+            <div class="border-t border-slate-100 pt-6">
+                <h4 class="font-bold text-slate-900 text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-envelope text-pmt-500"></i> Contact</h4>
+                <p>Questions about this policy? Email us at <a href="/cdn-cgi/l/email-protection#f686849f8097958fb6868493959f859f9998828497959d9384d8978686" class="text-pmt-600 hover:underline"><span class="__cf_email__" data-cfemail="4535372c3324263c05353720262c362c2a2b313724262e20376b243535">[email&#160;protected]</span></a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        function openGallery() {
+            const overlay = document.getElementById('gallery-overlay');
+            overlay.classList.remove('hidden');
+            overlay.classList.add('flex');
+            const box = document.getElementById('gallery-box');
+            box.classList.remove('animate-fade-in');
+            void box.offsetWidth;
+            box.classList.add('animate-fade-in');
+        }
+        function closeGallery() {
+            const overlay = document.getElementById('gallery-overlay');
+            overlay.classList.add('hidden');
+            overlay.classList.remove('flex');
+        }
+        function lightbox(el) {
+            const src = el.querySelector('img').src;
+            document.getElementById('lightbox-img').src = src;
+            const lb = document.getElementById('lightbox');
+            lb.classList.remove('hidden');
+            lb.classList.add('flex');
+        }
+        function closeLightbox() {
+            const lb = document.getElementById('lightbox');
+            lb.classList.add('hidden');
+            lb.classList.remove('flex');
+        }
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') { closeGallery(); closeLightbox(); }
+        });
+    </script>
+
     <footer class="py-12 text-center text-slate-500 text-sm">
         <div class="flex items-center justify-center gap-2 mb-3">
-             <img src="images/app-logo.png" alt="Precision Movement Tracker Logo" class="h-6 w-6 opacity-70">
+             <img src="images/datavenlogo.png" alt="Dataven Logo" style="height:24px;width:24px;object-fit:cover;border-radius:50%;opacity:0.7;">
              <span>&copy; 2026 Precision Movement Tracker</span>
         </div>
         <p>Built for privacy, driven by data.</p>

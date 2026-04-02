@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision Movement Tracker | Private Local Fitness Mapping</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        // Custom Tailwind config to match the logo colors
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                pmt: {
+                  '50': '#f0f9fa',
+                  '100': '#d9f0f2',
+                  '500': '#1fb1c3', // Teal from logo
+                  '600': '#1991a0',
+                  '700': '#157582',
+                  '900': '#154e58', // Deep teal for dark sections
+                },
+                'sky': '#17b0cb' // Light blue from logo
+              }
+            }
+          }
+        }
+    </script>
+    <style>
+        /* Define a CSS class to handle the World Map Banner background */
+        .banner-bg { 
+            background-image: linear-gradient(135deg, rgba(31, 177, 195, 0.92) 0%, rgba(21, 78, 88, 0.95) 100%), 
+                              url('images/world-banner.png');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <nav class="bg-white border-b border-slate-100 py-3 px-6 shadow-sm">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="images/app-logo.png" alt="Precision Movement Tracker Logo" class="h-10 w-10">
+                <span class="text-xl font-bold text-slate-900">Precision Movement Tracker</span>
+            </div>
+            <a href="#" class="hidden sm:block bg-pmt-500 hover:bg-pmt-600 text-white px-5 py-2 rounded-full font-semibold transition text-sm">Join the Alpha Test</a>
+        </div>
+    </nav>
+
+    <header class="banner-bg text-white py-24 px-6 text-center shadow-inner">
+        <div class="max-w-4xl mx-auto">
+            <i class="fa-solid fa-location-crosshairs text-7xl text-pmt-100 mb-6 drop-shadow-lg"></i>
+            <h1 class="text-5xl font-extrabold mb-4 drop-shadow-md">PrecisionTracker</h1>
+            <p class="text-xl text-pmt-50 mb-8 leading-relaxed max-w-2xl mx-auto">
+                A mobile GPS tracking app with map display, route, steps, and distance recording. 
+                <span class="block mt-2 font-semibold text-pmt-100">Private, Local-First Fitness Mapping.</span>
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#features" class="bg-pmt-600 hover:bg-pmt-700 text-white px-8 py-3 rounded-full font-bold transition shadow-md">Explore Features</a>
+                <a href="https://play.google.com/store/apps/details?id=com.movementtracker.app"class="bg-white text-pmt-900 px-8 py-3 rounded-full font-bold hover:bg-slate-200 transition shadow-md">Join the Alpha Test</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="py-20 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-16">High-Performance Tracking</h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="feature-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition">
+                <i class="fa-solid fa-map-location-dot text-4xl text-sky mb-6"></i>
+                <h3 class="text-xl font-bold mb-3">Precise GPS Tracing</h3>
+                <p class="text-slate-600">Real-time route visualization with high-accuracy metrics including Altitude, Speed, and Pace.</p>
+            </div>
+
+            <div class="feature-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition">
+                <i class="fa-solid fa-shoe-prints text-4xl text-green-600 mb-6"></i>
+                <h3 class="text-xl font-bold mb-3">Integrated Pedometer</h3>
+                <p class="text-slate-600">Utilizes internal motion sensors to record every stride and calculate precise fitness statistics.</p>
+            </div>
+
+            <div class="feature-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition">
+                <i class="fa-solid fa-shield-halved text-4xl text-red-600 mb-6"></i>
+                <h3 class="text-xl font-bold mb-3">100% Private & Local</h3>
+                <p class="text-slate-600">No cloud, no accounts, no tracking. Your data stays on your device—exactly where it belongs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-pmt-900 text-pmt-50 py-20 px-6">
+        <div class="max-w-4xl mx-auto space-y-16">
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <div class="flex-1">
+                    <h3 class="text-2xl font-bold mb-4">Multimedia & Data Management</h3>
+                    <p class="text-pmt-100 leading-relaxed">
+                        Document your journey with the in-app route camera. Export your sessions as professionally formatted 
+                        <strong>CSV or JSON</strong> files for personal archiving or analysis.
+                    </p>
+                </div>
+                <div class="flex-1 text-center">
+                    <i class="fa-solid fa-file-export text-8xl text-pmt-500 opacity-70"></i>
+                </div>
+            </div>
+
+            <div class="border-t border-pmt-700 pt-16 flex flex-col md:flex-row-reverse items-center gap-10">
+                <div class="flex-1">
+                    <h3 class="text-2xl font-bold mb-4">Technical Requirements</h3>
+                    <ul class="text-pmt-100 space-y-2">
+                        <li><i class="fa-solid fa-check text-green-400 mr-2"></i> Android 8.0 (Oreo) or higher</li>
+                        <li><i class="fa-solid fa-check text-green-400 mr-2"></i> GPS/Location set to High Accuracy</li>
+                        <li><i class="fa-solid fa-check text-green-400 mr-2"></i> Accelerometer for Step Counting</li>
+                    </ul>
+                </div>
+                <div class="flex-1 text-center">
+                    <i class="fa-solid fa-microchip text-8xl text-pmt-700"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-slate-500 text-sm">
+        <div class="flex items-center justify-center gap-2 mb-3">
+             <img src="images/app-logo.png" alt="Precision Movement Tracker Logo" class="h-6 w-6 opacity-70">
+             <span>&copy; 2026 Precision Movement Tracker</span>
+        </div>
+        <p>Built for privacy, driven by data.</p>
+    </footer>
+
+</body>
+</html>
